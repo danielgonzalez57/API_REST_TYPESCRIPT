@@ -9,6 +9,7 @@ const cleanFileName = (fileName:string) =>{
     return file;
 }
 
+// agarra el nombre del archivo y lo coloca en la ruta automatico (Cargador dinamico de rutas)
 readdirSync(PATH_ROUTER).filter((fileName)=> {
     const cleanName = cleanFileName(fileName)
     if(cleanName !== "index"){

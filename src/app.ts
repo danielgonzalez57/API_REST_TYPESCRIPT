@@ -8,4 +8,5 @@ const app = express();
 
 app.use(cors());
 app.use(router);
+
 app.listen(PORT, () => console.log(`----------- SERVER RUNNING ON PORT ${PORT} -----------`))

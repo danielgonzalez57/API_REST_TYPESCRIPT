@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nodemon ./src/app.ts",
     "dev": "npx nodemon src/app.ts"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.0",
     "@types/multer": "^1.4.12",
-    "@types/sequelize": "^4.28.20"
+    "@types/sequelize": "^4.28.20",
+    "ts-node": "^10.9.2"
   }
 }
