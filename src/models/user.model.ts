@@ -14,7 +14,15 @@ const masterUserSchema: ModelAttributes<MasterUser, User> = {
     allowNull: false,
     type: DataTypes.STRING(70),
   },
+  Email: {
+    allowNull: false,
+    type: DataTypes.STRING(70),
+  },
   Departament: {
+    allowNull: false,
+    type: DataTypes.STRING(100),
+  },
+  Password: {
     allowNull: false,
     type: DataTypes.STRING(100),
   },
@@ -27,7 +35,9 @@ const masterUserSchema: ModelAttributes<MasterUser, User> = {
 class MasterUser extends Model<User> implements User {
   public ID_User!: number;
   public Nombre!: string;
+  public Email!: string;
   public Departament!: string;
+  public Password!: string;
   public ID_Rol!: number;
   
   static associate() {

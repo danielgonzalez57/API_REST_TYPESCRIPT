@@ -4,7 +4,7 @@ import { registerCtrl, loginCtrl } from "../controllers/auth.controller"
 const router = Router();
 
 /** http://localhost:3002/auth/register [POST] */
-router.get("/register", registerCtrl);
-router.get("/login", loginCtrl);
+router.post("/register", registerCtrl);
+router.post("/login", loginCtrl);
 
 export { router };
