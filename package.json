@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "nodemon ./src/index.ts",
-    "dev": "npx nodemon src/index.ts"
+    "dev": "npx nodemon src/index.ts",
+    "build": "tsc",
+    "start": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "Daniel Gonzalez",

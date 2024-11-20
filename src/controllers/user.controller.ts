@@ -8,8 +8,10 @@ const getItem = async ({ params }:Request, res:Response) =>{
         const { id } = params;
         const responseitems = await getUser(id);
         res.send(responseitems);
+
     } catch (error) {
         handleHttp(res, 'ERROR_GET_ITEM', error);
+
     }
 }
 

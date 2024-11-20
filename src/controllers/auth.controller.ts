@@ -7,17 +7,28 @@ const registerCtrl = async ({body}: Request, res: Response) => {
     try {
         const responseUser = await registerNewUser(body);
         res.send(responseUser);
-    } catch (error) {
+
+    } catch (error) { 
         handleHttp(res, 'ERROR_POST_ITEM', error);
     }
 };  
 
-const loginCtrl = async (req: Request, res: Response) => {
+const loginCtrl = async ({body}: Request, res: Response) => {
     try {
-        // const responseUser = await registerNewUser(body);
-        // res.send(responseUser);
+        const {Email, Password} = body
+        const responseUser = await loginUser({Email, Password});
+
+        if(responseUser === "PASSWORD_INCORRECT"){
+            res.status(403);
+            res.send(responseUser);
+            
+        }else{
+            res.send(responseUser);
+        }
+
     } catch (error) {
         handleHttp(res, 'ERROR_POST_ITEM', error);
+
     }
 };
 
