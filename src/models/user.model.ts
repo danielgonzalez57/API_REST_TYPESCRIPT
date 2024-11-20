@@ -4,6 +4,7 @@ import { User } from '../interfaces/user.interface';
 const tableName = "MASTER_USER";
 const modelName = "modelUser";
 
+// CAMBIAR
 const masterUserSchema: ModelAttributes<MasterUser, User> = {
   ID_User: {
     autoIncrement: true,
