@@ -8,7 +8,7 @@ const registerCtrl = async ({body}: Request, res: Response) => {
         const responseUser = await registerNewUser(body);
         res.send(responseUser);
 
-    } catch (error) { 
+    } catch (error) {
         handleHttp(res, 'ERROR_POST_ITEM', error);
     }
 };  
@@ -20,8 +20,12 @@ const loginCtrl = async ({body}: Request, res: Response) => {
 
         if(responseUser === "PASSWORD_INCORRECT"){
             res.status(403);
-            res.send(responseUser);
-            
+            res.send('Error en la contraseña');
+        }
+        else if(responseUser === "NOT_FOUND_USER"){
+            res.status(403);
+            res.send('El usuario no existe');
+
         }else{
             res.send(responseUser);
         }

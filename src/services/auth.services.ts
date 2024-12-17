@@ -19,15 +19,15 @@ const registerNewUser = async ({Email, Password, Nombre, Departament, ID_Rol}: O
     // Regista el usuario con el password hasheado
     const registerNewUser = await sequelize.models.modelUser.create({Email, Password:passHash , Nombre, Departament, ID_Rol});
     return registerNewUser;
-
 };
 
 // LOGIN
 const loginUser = async ({Email, Password}: Auth) => {
 
     const isCheck = await sequelize.models.modelUser.findOne({where:{Email: Email}});
-    if(!isCheck) return "NOT_FOUND_USER";
 
+    if(!isCheck) return "NOT_FOUND_USER";
+    
     const passwordHash = isCheck.dataValues.Password;
  
     const isCorrect = await verified(Password, passwordHash);
@@ -36,10 +36,12 @@ const loginUser = async ({Email, Password}: Auth) => {
 
     const token = await generateToken(isCheck.dataValues.Email);
     
-
     const data = {
         Token: token,
-        user: isCheck
+        Nombre: isCheck.dataValues.Nombre,
+        Email: isCheck.dataValues.Email,
+        ID_Rol: isCheck.dataValues.ID_Rol,
+        ID_User: isCheck.dataValues.ID_User,  
     }
 
     return data;

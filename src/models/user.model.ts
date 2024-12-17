@@ -21,7 +21,7 @@ const masterUserSchema: ModelAttributes<MasterUser, User> = {
   },
   Departament: {
     allowNull: false,
-    type: DataTypes.STRING(100),
+    type: DataTypes.INTEGER,
   },
   Password: {
     allowNull: false,
@@ -37,7 +37,7 @@ class MasterUser extends Model<User> implements User {
   public ID_User!: number;
   public Nombre!: string;
   public Email!: string;
-  public Departament!: string;
+  public Departament!: number;
   public Password!: string;
   public ID_Rol!: number;
   

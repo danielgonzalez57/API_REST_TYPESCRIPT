@@ -4,19 +4,19 @@ import {  DeleteItem, getItem, getItems, PostItem, UpdateItem } from "../control
 const router = Router();
 
 /** http://localhost:3002/users/ [*] */
-// GET *
-router.get("/", getItems);
+// GET * 
+router.get("/masterUser", getItems);
 
 // GET
 router.get("/:id", getItem);
 
 // POST
-router.post("/", PostItem);
+router.post("/createdUser", PostItem);
 
 // PUT
-router.put("/:id", UpdateItem);
+router.put("/updateUser/:id", UpdateItem);
 
 // DELETE
-router.delete("/:id", DeleteItem);
+router.delete("/deleteUser/:id", DeleteItem);
 
 export { router };
